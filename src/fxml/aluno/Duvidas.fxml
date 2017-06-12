@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane layoutX="223.0" layoutY="69.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Título:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="50.0" top="100.0" />
+               </StackPane.margin>
+            </Label>
+            <TextField StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="130.0" right="100.0" top="95.0" />
+               </StackPane.margin>
+            </TextField>
+            <Label text="Matéria:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="50.0" top="175.0" />
+               </StackPane.margin>
+            </Label>
+            <ComboBox prefWidth="150.0" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="130.0" top="170.0" />
+               </StackPane.margin>
+            </ComboBox>
+            <Label text="Dúvida:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="50.0" top="250.0" />
+               </StackPane.margin>
+            </Label>
+            <TextArea prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="50.0" left="130.0" right="100.0" top="250.0" />
+               </StackPane.margin>
+            </TextArea>
+            <Label text="Cadastrar Dúvida" StackPane.alignment="TOP_CENTER">
+               <StackPane.margin>
+                  <Insets top="30.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
