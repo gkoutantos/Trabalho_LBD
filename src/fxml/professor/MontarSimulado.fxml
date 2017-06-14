@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane layoutX="400.0" layoutY="214.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Criar Simulado" StackPane.alignment="TOP_CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets top="20.0" />
+               </StackPane.margin>
+            </Label>
+            <ComboBox prefHeight="31.0" prefWidth="270.0" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="100.0" top="95.0" />
+               </StackPane.margin>
+            </ComboBox>
+            <Label text="Matéria:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="30.0" top="100.0" />
+               </StackPane.margin>
+            </Label>
+            <TableView prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Questões" />
+              </columns>
+               <StackPane.margin>
+                  <Insets bottom="110.0" left="30.0" right="30.0" top="150.0" />
+               </StackPane.margin>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Button mnemonicParsing="false" text="Adicionar ao Simulado" StackPane.alignment="BOTTOM_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="30.0" />
+               </StackPane.margin>
+            </Button>
+            <Button disable="true" mnemonicParsing="false" text="Concluir" StackPane.alignment="BOTTOM_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="20.0" right="30.0" />
+               </StackPane.margin>
+            </Button>
+            <Label text="Questões Adicionadas:" StackPane.alignment="BOTTOM_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="70.0" left="30.0" />
+               </StackPane.margin>
+            </Label>
+            <Label text="1" StackPane.alignment="BOTTOM_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="70.0" left="200.0" />
+               </StackPane.margin>
+            </Label>
+         </children></StackPane>
+   </children>
+</AnchorPane>

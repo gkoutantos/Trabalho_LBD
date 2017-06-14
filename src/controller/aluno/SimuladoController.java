@@ -1,4 +1,4 @@
-package controller;
+package controller.aluno;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
@@ -10,6 +10,7 @@ public class SimuladoController {
 	@FXML RadioButton rdbB;
 	@FXML RadioButton rdbC;
 	@FXML RadioButton rdbD;
+	@FXML RadioButton rdbE;
 	
 	public void initialize(){
 		 final ToggleGroup group = new ToggleGroup();
@@ -17,5 +18,6 @@ public class SimuladoController {
 		 rdbB.setToggleGroup(group);
 		 rdbC.setToggleGroup(group);
 		 rdbD.setToggleGroup(group);
+		 rdbE.setToggleGroup(group);
 	}
 }

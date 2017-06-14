@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane layoutX="200.0" layoutY="43.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Cadastrar Material" StackPane.alignment="TOP_CENTER">
+               <StackPane.margin>
+                  <Insets top="30.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="Valor:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="30.0" top="100.0" />
+               </StackPane.margin>
+            </Label>
+            <TextField StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="110.0" right="40.0" top="100.0" />
+               </StackPane.margin>
+            </TextField>
+            <Label text="Descrição:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="30.0" top="150.0" />
+               </StackPane.margin>
+            </Label>
+            <TextArea prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="70.0" left="110.0" right="40.0" top="150.0" />
+               </StackPane.margin>
+            </TextArea>
+            <Button mnemonicParsing="false" text="Cadastrar" StackPane.alignment="BOTTOM_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="20.0" right="40.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

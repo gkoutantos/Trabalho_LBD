@@ -1,4 +1,4 @@
-package controller;
+package controller.aluno;
 
 import java.io.IOException;
 
@@ -37,8 +37,7 @@ public class MainAlunoController {
 			Stage simuladoStage = new Stage();
 			simuladoStage.setTitle("Examtl - Simulado");
 			simuladoStage.setScene(scene);
-			simuladoStage.setMinWidth(1000);
-			simuladoStage.setMinHeight(800);
+			simuladoStage.setResizable(false);
 			simuladoStage.show();
 			
 		} catch (IOException e) {

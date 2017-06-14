@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="550.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.professor.QuestoesController">
+   <children>
+      <StackPane layoutX="264.0" layoutY="127.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Cadastrar Questão" StackPane.alignment="TOP_CENTER">
+               <StackPane.margin>
+                  <Insets top="20.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="Matéria:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="30.0" top="105.0" />
+               </StackPane.margin>
+            </Label>
+            <ComboBox prefHeight="31.0" prefWidth="241.0" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="120.0" top="100.0" />
+               </StackPane.margin>
+            </ComboBox>
+            <Label text="Conteúdo:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="30.0" top="160.0" />
+               </StackPane.margin>
+            </Label>
+            <TextArea prefHeight="200.0" prefWidth="200.0">
+               <StackPane.margin>
+                  <Insets bottom="170.0" left="120.0" right="40.0" top="160.0" />
+               </StackPane.margin>
+            </TextArea>
+            <Label text="Resposta:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="30.0" top="400.0" />
+               </StackPane.margin>
+            </Label>
+            <RadioButton fx:id="rdbA" mnemonicParsing="false" text="A" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="120.0" top="400.0" />
+               </StackPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="rdbB" mnemonicParsing="false" text="B" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="170.0" top="400.0" />
+               </StackPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="rdbC" mnemonicParsing="false" text="C" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="220.0" top="400.0" />
+               </StackPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="rdbD" mnemonicParsing="false" text="D" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="270.0" top="400.0" />
+               </StackPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="rdbE" mnemonicParsing="false" text="E" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="320.0" top="400.0" />
+               </StackPane.margin>
+            </RadioButton>
+            <Label text="Dificuldade:" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="30.0" top="450.0" />
+               </StackPane.margin>
+            </Label>
+            <ComboBox prefHeight="31.0" prefWidth="65.0" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="120.0" top="445.0" />
+               </StackPane.margin>
+            </ComboBox>
+            <Button mnemonicParsing="false" text="Cadastrar" StackPane.alignment="BOTTOM_RIGHT">
+               <StackPane.margin>
+                  <Insets bottom="20.0" right="40.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

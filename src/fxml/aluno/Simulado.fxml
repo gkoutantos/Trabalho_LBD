@@ -7,28 +7,33 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SimuladoController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.aluno.SimuladoController">
    <children>
-      <StackPane layoutY="511.0" prefHeight="300.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="500.0">
+      <StackPane layoutY="511.0" prefHeight="300.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="650.0">
          <children>
             <RadioButton fx:id="rdbA" mnemonicParsing="false" text="Alternativa A" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
-                  <Insets left="50.0" top="40.0" />
+                  <Insets left="50.0" top="20.0" />
                </StackPane.margin>
             </RadioButton>
             <RadioButton fx:id="rdbB" mnemonicParsing="false" text="Alternativa B" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
-                  <Insets left="50.0" top="80.0" />
+                  <Insets left="250.0" top="20.0" />
                </StackPane.margin>
             </RadioButton>
             <RadioButton fx:id="rdbC" mnemonicParsing="false" text="Alternativa C" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
-                  <Insets left="50.0" top="120.0" />
+                  <Insets left="450.0" top="20.0" />
                </StackPane.margin>
             </RadioButton>
             <RadioButton fx:id="rdbD" mnemonicParsing="false" text="Alternativa D" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
-                  <Insets left="50.0" top="160.0" />
+                  <Insets left="650.0" top="20.0" />
+               </StackPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="rdbE" mnemonicParsing="false" text="Alternativa E" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="850.0" top="20.0" />
                </StackPane.margin>
             </RadioButton>
             <Button mnemonicParsing="false" text="Voltar" StackPane.alignment="BOTTOM_LEFT">
@@ -43,7 +48,7 @@
             </Button>
          </children>
       </StackPane>
-      <StackPane prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="Questão" StackPane.alignment="CENTER">
                <font>
@@ -58,6 +63,11 @@
             <Label text="1/90" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets left="10.0" top="10.0" />
+               </StackPane.margin>
+            </Label>
+            <Label text="Matemática" StackPane.alignment="TOP_RIGHT">
+               <StackPane.margin>
+                  <Insets right="50.0" top="10.0" />
                </StackPane.margin>
             </Label>
          </children>
