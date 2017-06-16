@@ -1,25 +1,58 @@
 package controller.professor;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
+import connection.ConnectionDB;
+import dao.NoticiasDAO;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class MainProfessorController {
 	
-	@FXML TableView<?> tableNoticias;
+	@FXML private TableView<String> tableNoticias;
+	@FXML private TableColumn<String, String> noticiasColumn;
+	
+	private ObservableList<String> data;
 	
 	public void initialize(){
 		tableNoticias.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		tableNoticias.setPlaceholder(new Label("Não há notícias para exibir."));
+		
+		noticiasColumn.setCellValueFactory(new Callback<CellDataFeatures<String, String>, ObservableValue<String>>() {
+	        @Override
+	        public ObservableValue<String> call(CellDataFeatures<String, String> p) {
+	            return new SimpleStringProperty(p.getValue());
+	        }
+	    });
+		
+		ConnectionDB conecta = new ConnectionDB();
+		Connection conexao = conecta.conecta();
+		
+		NoticiasDAO noticias = new NoticiasDAO(conexao);
+		try {
+			data = FXCollections.observableArrayList(noticias.lista());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		tableNoticias.setItems(data);
 	}
 	
 	public void clickOnMontarSimulado(){
