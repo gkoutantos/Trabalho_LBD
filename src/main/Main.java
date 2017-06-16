@@ -1,5 +1,6 @@
 package main;
 
+import connection.ConnectionDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,7 +17,9 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
-			//testando essa merda de bosta
+			
+			ConnectionDB conecta = new ConnectionDB();
+			conecta.conecta();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
