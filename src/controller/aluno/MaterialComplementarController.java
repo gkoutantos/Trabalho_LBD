@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import connection.ConnectionDB;
-import dao.DesempenhoDAO;
 import dao.MaterialComplementarDAO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -18,27 +17,26 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
-import objetos.Desempenho;
 import objetos.MaterialComplementar;
 
 public class MaterialComplementarController {
 	@FXML private TextField txtValor;
 	@FXML private TableView<MaterialComplementar> tableMC;
-	@FXML private TableColumn<MaterialComplementar, String> TituloColumn;
-	@FXML private TableColumn<MaterialComplementar, String> ConteudoColumn;
+	@FXML private TableColumn<MaterialComplementar, String> tituloColumn;
+	@FXML private TableColumn<MaterialComplementar, String> conteudoColumn;
 	private ObservableList<MaterialComplementar> data;
 	
 	public void initialize(){
 		tableMC.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		tableMC.setPlaceholder(new Label("Não há simulados realizados."));
+		tableMC.setPlaceholder(new Label("Não há material complementar."));
 		
-		TituloColumn.setCellValueFactory(new Callback<CellDataFeatures<MaterialComplementar, String>, ObservableValue<String>>() {
+		tituloColumn.setCellValueFactory(new Callback<CellDataFeatures<MaterialComplementar, String>, ObservableValue<String>>() {
 	        @Override
 	        public ObservableValue<String> call(CellDataFeatures<MaterialComplementar, String> p) {
 	            return new SimpleStringProperty(p.getValue().getTitulo());
 	        }
 	    });
-		ConteudoColumn.setCellValueFactory(new Callback<CellDataFeatures<MaterialComplementar, String>, ObservableValue<String>>() {
+		conteudoColumn.setCellValueFactory(new Callback<CellDataFeatures<MaterialComplementar, String>, ObservableValue<String>>() {
 	        @Override
 	        public ObservableValue<String> call(CellDataFeatures<MaterialComplementar, String> p) {
 	            return new SimpleStringProperty(p.getValue().getConteudo());

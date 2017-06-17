@@ -44,7 +44,7 @@ public class DoacaoController {
 		alert.showAndWait();
 		
 		Node source = (Node) ae.getSource();
-		Window loginStage = source.getScene().getWindow();
-		loginStage.hide();
+		Window thisStage = source.getScene().getWindow();
+		thisStage.hide();
 	}
 }

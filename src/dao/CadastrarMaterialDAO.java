@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import objetos.CadastroMaterial;
-import objetos.Doacao;
 
 public class CadastrarMaterialDAO {
 	 private Connection con;
@@ -17,7 +16,7 @@ public class CadastrarMaterialDAO {
 	        
 	        String sql = "INSERT INTO material_complementar(descricao_material,valor_material) VALUES (?,?)";
 	        try(PreparedStatement stmt = con.prepareStatement(sql)){
-	            stmt.setInt(1, cadastro.getDescricao());
+	            stmt.setString(1, cadastro.getDescricao());
 	            stmt.setInt(2, cadastro.getValor());
 	            stmt.execute();
 	        }catch (Exception e) {

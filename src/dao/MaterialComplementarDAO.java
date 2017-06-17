@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import objetos.CadastroMaterial;
 import objetos.MaterialComplementar;
 
 public class MaterialComplementarDAO {
