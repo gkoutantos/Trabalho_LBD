@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.professor.MaterialComplementarController">
    <children>
       <StackPane layoutX="200.0" layoutY="43.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -20,7 +20,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label text="Valor:" StackPane.alignment="TOP_LEFT">
+            <Label fx:id="txtValor" text="Valor:" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets left="30.0" top="100.0" />
                </StackPane.margin>
@@ -30,7 +30,7 @@
                   <Insets left="110.0" right="40.0" top="100.0" />
                </StackPane.margin>
             </TextField>
-            <Label text="Descrição:" StackPane.alignment="TOP_LEFT">
+            <Label fx:id="txtDesc" text="Descrição:" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets left="30.0" top="150.0" />
                </StackPane.margin>
@@ -40,7 +40,7 @@
                   <Insets bottom="70.0" left="110.0" right="40.0" top="150.0" />
                </StackPane.margin>
             </TextArea>
-            <Button mnemonicParsing="false" text="Cadastrar" StackPane.alignment="BOTTOM_RIGHT">
+            <Button mnemonicParsing="false" onAction="#clickOnCadastrar" text="Cadastrar" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets bottom="20.0" right="40.0" />
                </StackPane.margin>
