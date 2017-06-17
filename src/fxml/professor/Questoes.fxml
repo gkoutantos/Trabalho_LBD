@@ -24,7 +24,7 @@
                   <Insets left="30.0" top="105.0" />
                </StackPane.margin>
             </Label>
-            <ComboBox prefHeight="31.0" prefWidth="241.0" StackPane.alignment="TOP_LEFT">
+            <ComboBox fx:id="cmbMateria" prefHeight="31.0" prefWidth="241.0" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets left="120.0" top="100.0" />
                </StackPane.margin>
@@ -34,7 +34,7 @@
                   <Insets left="30.0" top="160.0" />
                </StackPane.margin>
             </Label>
-            <TextArea prefHeight="200.0" prefWidth="200.0">
+            <TextArea fx:id="txtConteudo" prefHeight="200.0" prefWidth="200.0">
                <StackPane.margin>
                   <Insets bottom="170.0" left="120.0" right="40.0" top="160.0" />
                </StackPane.margin>
@@ -44,7 +44,7 @@
                   <Insets left="30.0" top="400.0" />
                </StackPane.margin>
             </Label>
-            <RadioButton fx:id="rdbA" mnemonicParsing="false" text="A" StackPane.alignment="TOP_LEFT">
+            <RadioButton fx:id="rdbA" mnemonicParsing="false" selected="true" text="A" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets left="120.0" top="400.0" />
                </StackPane.margin>
@@ -74,12 +74,12 @@
                   <Insets left="30.0" top="450.0" />
                </StackPane.margin>
             </Label>
-            <ComboBox prefHeight="31.0" prefWidth="65.0" StackPane.alignment="TOP_LEFT">
+            <ComboBox fx:id="cmbDificuldade" prefHeight="31.0" prefWidth="65.0" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets left="120.0" top="445.0" />
                </StackPane.margin>
             </ComboBox>
-            <Button mnemonicParsing="false" text="Cadastrar" StackPane.alignment="BOTTOM_RIGHT">
+            <Button mnemonicParsing="false" onAction="#clickOnCadastrar" text="Cadastrar" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets bottom="20.0" right="40.0" />
                </StackPane.margin>

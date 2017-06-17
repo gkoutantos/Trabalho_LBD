@@ -19,25 +19,13 @@ public class QuestoesDAO {
     
     public void salva(Questoes questoes) throws SQLException{
         
-        String sql = "INSERT INTO Banco_de_Questos(Conteudo_questao, dificuldade, respota_certa, id_materia) VALUES (?, ?, ?, ?)";             
-        String sql2 = "select id_materia from materia where nome_materia LIKE ?;";
-        try(PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
-        try(PreparedStatement stmt2 = con.prepareStatement(sql2)){
+        String sql = "INSERT INTO banco_de_questoes(conteudo_questao, dificuldade, respota_certa, id_materia) VALUES (?, ?, ?, ?)";             
+        try(PreparedStatement stmt = con.prepareStatement(sql)){
             stmt.setString(1, questoes.getConteudo_questao());
             stmt.setInt(2, questoes.getDificuldade());
             stmt.setString(3,  questoes.getResposta_correta());
-            
-            stmt2.setString(1, questoes.getMateria());
-            stmt2.executeQuery();
-            
-            try(ResultSet rs = stmt2.getResultSet() ){                     
-                rs.next();
-                int id = rs.getInt("Id_materia");
-                stmt.setInt(4, id);      
-            }            
-            
+            stmt.setInt(4, questoes.getId_materia());          
             stmt.execute();                        
-        }
         }
     }
     
@@ -52,13 +40,13 @@ public class QuestoesDAO {
             try(ResultSet rs = stmt.getResultSet() ){
                 while(rs.next()){
                                         
-                    int id = rs.getInt("Id_questao");
+                    int id = rs.getInt("id_questao");
                     String conteudo = rs.getString("conteudo_questao");
                     int dificuldade = rs.getInt("dificuldade");
                     String resposta_correta = rs.getString("resposta_correta");
-                    String nome_materia = rs.getString("nome_materia");
+                    Integer id_materia = rs.getInt("id_materia");
 
-                    Questoes q = new Questoes(id, conteudo, dificuldade, resposta_correta, nome_materia);
+                    Questoes q = new Questoes(id, conteudo, dificuldade, resposta_correta, id_materia);
                     
                     lista.add(q);                    
                 }
@@ -66,32 +54,6 @@ public class QuestoesDAO {
         }
         return lista;
         
-    }
-    
-    public void alterar(Questoes questoes) throws SQLException{
-        
-        String sql = "UPDATE Banco_de_Questos SET Conteudo_questao = ?, dificuldade = ?, respota_certa = ?, id_materia = ? WHERE id_questao = ?";             
-        String sql2 = "select id_materia from materia where nome_materia LIKE ?;";
-        
-        try(PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
-        try(PreparedStatement stmt2 = con.prepareStatement(sql2)){
-            
-            stmt.setString(1, questoes.getConteudo_questao());
-            stmt.setInt(2, questoes.getDificuldade());
-            stmt.setString(3,  questoes.getResposta_correta());
-            
-            stmt2.setString(1, questoes.getMateria());
-            stmt2.executeQuery();
-            
-            try(ResultSet rs = stmt2.getResultSet() ){                     
-                rs.next();
-                int id = rs.getInt("Id_materia");
-                stmt.setInt(4, id);      
-            }            
-            
-            stmt.executeUpdate();                        
-        }
-        }
     }
     
     public void excluir(Questoes questoes) throws SQLException{

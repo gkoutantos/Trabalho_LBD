@@ -11,7 +11,7 @@
          <children>
             <TableView fx:id="tableDuvidas" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Dúvida" />
+                <TableColumn fx:id="duvidasColumn" prefWidth="75.0" text="Dúvida" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

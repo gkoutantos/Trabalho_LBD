@@ -6,14 +6,18 @@ public class Questoes {
     private String Conteudo_questao;
     private int dificuldade;
     private String resposta_correta;
-    private String materia;
-
-    public Questoes(int id_questao, String Conteudo_questao, int dificuldade, String resposta_correta, String materia) {
+    private Integer id_materia;
+    
+    public Questoes(){
+    	
+    }
+    
+    public Questoes(int id_questao, String Conteudo_questao, int dificuldade, String resposta_correta, Integer materia) {
         this.id_questao = id_questao;
         this.Conteudo_questao = Conteudo_questao;
         this.dificuldade = dificuldade;
         this.resposta_correta = resposta_correta;
-        this.materia = materia;
+        this.id_materia = materia;
     }
 
     public int getId_questao() {
@@ -48,14 +52,11 @@ public class Questoes {
         this.resposta_correta = resposta_correta;
     }
 
-    public String getMateria() {
-        return materia;
-    }
+	public Integer getId_materia() {
+		return id_materia;
+	}
 
-    public void setMateria(String materia) {
-        this.materia = materia;
-    }
-    
-    
-    
+	public void setId_materia(Integer id_materia) {
+		this.id_materia = id_materia;
+	}
 }
