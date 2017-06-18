@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import javafx.util.StringConverter;
@@ -20,7 +21,7 @@ import objetos.Materia;
 
 public class DuvidasController {
 	@FXML private TextField txtTitulo;
-	@FXML private TextField txtDuvida;
+	@FXML private TextArea txtDuvida;
 	@FXML ComboBox<Materia> cmbMateria;
 	
 	private DuvidaAlunoDAO duvidasalunoDAO;
