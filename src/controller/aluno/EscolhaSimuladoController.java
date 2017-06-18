@@ -47,7 +47,6 @@ public class EscolhaSimuladoController {
 				Stage simuladoProntoStage = new Stage();
 				simuladoProntoStage.setTitle("Examtl - Simulado Pronto");
 				simuladoProntoStage.setScene(scene);
-				simuladoProntoStage.setResizable(false);
 				simuladoProntoStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();

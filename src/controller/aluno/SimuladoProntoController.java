@@ -36,11 +36,11 @@ public class SimuladoProntoController {
 		Connection conexao = conecta.conecta();
 		SimuladoProntoDAO simuladoProntoDAO = new SimuladoProntoDAO(conexao);
 		
-		try {
-			data = FXCollections.observableArrayList(simuladoProntoDAO.lista());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			data = FXCollections.observableArrayList(simuladoProntoDAO.lista());
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		
 		tableSimulados.setItems(FXCollections.observableArrayList(data));
 	}
