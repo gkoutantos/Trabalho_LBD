@@ -1,6 +1,7 @@
 package controller.aluno;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import connection.ConnectionDB;
 import dao.SimuladoProntoDAO;
@@ -14,12 +15,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
+import objetos.Simulado;
 
 public class SimuladoProntoController {
 	@FXML private TableView<String> tableSimulados;
 	@FXML private TableColumn<String, String> simuladosColumn;
 	
-	private ObservableList<String> data;
+	private ObservableList<Simulado> data;
 	
 	public void initialize(){
 		tableSimulados.setPlaceholder(new Label("Não há simulados prontos."));
@@ -35,12 +37,12 @@ public class SimuladoProntoController {
 		Connection conexao = conecta.conecta();
 		SimuladoProntoDAO simuladoProntoDAO = new SimuladoProntoDAO(conexao);
 		
-//		try {
-//			data = FXCollections.observableArrayList(simuladoProntoDAO.lista());
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			data = FXCollections.observableArrayList(simuladoProntoDAO.lista());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
-		tableSimulados.setItems(FXCollections.observableArrayList(data));
+		//tableSimulados.setItems(FXCollections.observableArrayList(data));
 	}
 }
