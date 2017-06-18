@@ -1,7 +1,6 @@
 package controller.aluno;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 import connection.ConnectionDB;
 import dao.SimuladoProntoDAO;

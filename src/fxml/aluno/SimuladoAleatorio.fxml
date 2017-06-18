@@ -1,8 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane prefHeight="280.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.aluno.SimuladoAleatorioController">
+   <children>
+      <StackPane layoutY="42.0" prefHeight="167.0" prefWidth="400.0">
+         <children>
+            <CheckBox fx:id="chkMatematica" mnemonicParsing="false" text="Matemática" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="50.0" top="50.0" />
+               </StackPane.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkFisica" mnemonicParsing="false" text="Física" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="50.0" top="80.0" />
+               </StackPane.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkQuimica" mnemonicParsing="false" text="Química" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="50.0" top="110.0" />
+               </StackPane.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkPortugues" mnemonicParsing="false" text="Português" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="50.0" top="140.0" />
+               </StackPane.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkBiologia" mnemonicParsing="false" text="Biologia" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="200.0" top="50.0" />
+               </StackPane.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkGeografia" mnemonicParsing="false" text="Geografia" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="200.0" top="80.0" />
+               </StackPane.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkHistoria" mnemonicParsing="false" text="História" StackPane.alignment="TOP_LEFT">
+               <StackPane.margin>
+                  <Insets left="200.0" top="110.0" />
+               </StackPane.margin>
+            </CheckBox>
+         </children>
+      </StackPane>
+      <Button layoutX="168.0" layoutY="231.0" mnemonicParsing="false" onAction="#clickOnAvancar" text="Avançar" AnchorPane.bottomAnchor="20.0" />
+      <Label layoutX="118.0" layoutY="35.0" text="Selecione as matérias:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
