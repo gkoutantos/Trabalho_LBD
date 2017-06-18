@@ -17,8 +17,7 @@ private Connection con;
     
     public ArrayList<MaterialComplementar> lista() throws SQLException{        
         
-        String sql = "select m.descricao_material, materia.nome_materia from aluno_mc JOIN material_complementar as m ON aluno_mc.id_material_ref=m.id_material_complementar JOIN materia_mc ON m.id_material_complementar=materia_mc.id_material_ref JOIN materia ON materia.id_materia=materia_mc.id_materia_ref WHERE aluno_mc.id_aluno_ref=101;";
-        		
+    	String sql = "select m.descricao_material, materia.nome_materia from material_complementar as m JOIN materia_mc ON m.id_material_complementar=materia_mc.id_material_ref JOIN materia ON materia.id_materia=materia_mc.id_materia_ref;";
         
         ArrayList<MaterialComplementar> lista = new ArrayList<MaterialComplementar>();
         

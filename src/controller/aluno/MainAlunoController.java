@@ -64,10 +64,10 @@ public class MainAlunoController {
 	
 	public void clickOnFazerSimulado(){
 		try {
-			AnchorPane simulado = FXMLLoader.load(getClass().getResource("/fxml/aluno/Simulado.fxml"));
+			AnchorPane simulado = FXMLLoader.load(getClass().getResource("/fxml/aluno/EscolhaSimulado.fxml"));
 			Scene scene = new Scene(simulado);
 			Stage simuladoStage = new Stage();
-			simuladoStage.setTitle("Examtl - Simulado");
+			simuladoStage.setTitle("Examtl - Escolher Simulado");
 			simuladoStage.setScene(scene);
 			simuladoStage.setResizable(false);
 			simuladoStage.show();
