@@ -17,14 +17,8 @@ private Connection con;
     
     public ArrayList<MaterialComplementar> lista() throws SQLException{        
         
-        String sql = "select b.descricao_material, t.nome_materia"
-        		+ "from aluno_mc a INNER JOIN material_complementar b"
-        		+ "ON a.id_material_ref=b.id_material_complementar"
-        		+ "INNER JOIN materia_mc m"
-        		+ "ON b.id_material_complementar=m.id_material_ref"
-        		+ "INNER JOIN materia t"
-        		+ "ON t.id_materia=m.id_materia_ref"
-        		+ ";"; 
+        String sql = "select m.descricao_material, materia.nome_materia from aluno_mc JOIN material_complementar as m ON aluno_mc.id_material_ref=m.id_material_complementar JOIN materia_mc ON m.id_material_complementar=materia_mc.id_material_ref JOIN materia ON materia.id_materia=materia_mc.id_materia_ref WHERE aluno_mc.id_aluno_ref=101;";
+        		
         
         ArrayList<MaterialComplementar> lista = new ArrayList<MaterialComplementar>();
         
@@ -34,7 +28,7 @@ private Connection con;
             try(ResultSet rs = stmt.getResultSet() ){
                 while(rs.next()){
                 	MaterialComplementar mc = new MaterialComplementar();
-                	mc.setTitulo(rs.getString("id_material_complementar"));
+                	mc.setTitulo(rs.getString("nome_materia"));
                 	mc.setConteudo(rs.getString("descricao_material"));
                     lista.add(mc);
                 }

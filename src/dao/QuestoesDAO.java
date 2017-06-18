@@ -1,5 +1,6 @@
 package dao;
 
+import objetos.MaterialComplementar;
 import objetos.Questoes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,13 +18,23 @@ public class QuestoesDAO {
     
     public void salva(Questoes questoes) throws SQLException{
     	ArrayList<String> lista = new ArrayList<String>();
-    	//String sql = "select id_questao from banco_de_questoes";
-        String sql = "INSERT INTO banco_de_questoes(id_questao, conteudo_questao, dificuldade_questao, resposta_correta, id_materia_ref) VALUES (140, ?, ?, ?, ?)";             
+    	String sql = "select id_questao from banco_de_questoes";
+    	try(PreparedStatement stmt = con.prepareStatement(sql)){
+            stmt.execute();
+            
+            try(ResultSet rs = stmt.getResultSet() ){
+                while(rs.next()){
+                    lista.add(rs.getString("id_questao"));
+                }
+            }
+        }
+        sql = "INSERT INTO banco_de_questoes(id_questao, conteudo_questao, dificuldade_questao, resposta_correta, id_materia_ref) VALUES (?, ?, ?, ?, ?)";             
         try(PreparedStatement stmt = con.prepareStatement(sql)){
-            stmt.setString(1, questoes.getConteudo_questao());
-            stmt.setInt(2, questoes.getDificuldade());
-            stmt.setString(3,  questoes.getResposta_correta());
-            stmt.setInt(4, questoes.getId_materia());          
+        	stmt.setInt(1, (lista.size()+2));
+            stmt.setString(2, questoes.getConteudo_questao());
+            stmt.setInt(3, questoes.getDificuldade());
+            stmt.setString(4,  questoes.getResposta_correta());
+            stmt.setInt(5, questoes.getId_materia());          
             stmt.execute();                        
         }
     }

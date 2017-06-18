@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.aluno.DuvidasController">
    <children>
       <StackPane layoutX="223.0" layoutY="69.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -16,7 +16,7 @@
                   <Insets left="50.0" top="100.0" />
                </StackPane.margin>
             </Label>
-            <TextField StackPane.alignment="TOP_LEFT">
+            <TextField fx:id="txtTitulo" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets left="130.0" right="100.0" top="95.0" />
                </StackPane.margin>
@@ -26,7 +26,7 @@
                   <Insets left="50.0" top="175.0" />
                </StackPane.margin>
             </Label>
-            <ComboBox prefWidth="150.0" StackPane.alignment="TOP_LEFT">
+            <ComboBox fx:id="cmbMateria" prefWidth="150.0" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets left="130.0" top="170.0" />
                </StackPane.margin>
@@ -36,7 +36,7 @@
                   <Insets left="50.0" top="250.0" />
                </StackPane.margin>
             </Label>
-            <TextArea prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_LEFT">
+            <TextArea fx:id="txtDuvida" prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets bottom="80.0" left="130.0" right="100.0" top="250.0" />
                </StackPane.margin>
@@ -49,7 +49,7 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" text="Cadastrar" StackPane.alignment="BOTTOM_RIGHT">
+            <Button mnemonicParsing="false" onAction="#clickOnCadastrar" text="Cadastrar" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets bottom="20.0" right="20.0" />
                </StackPane.margin>
