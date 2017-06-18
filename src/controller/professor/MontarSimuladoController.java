@@ -98,6 +98,7 @@ public class MontarSimuladoController {
 	
 	private void loadTableQuestoes(){
 		List<Questoes> listaQuestoes = null;
+		data.clear();
 		try {
 			listaQuestoes = questoes.lista();
 		} catch (SQLException e) {

@@ -1,6 +1,5 @@
 package dao;
 
-import objetos.MaterialComplementar;
 import objetos.Questoes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
