@@ -1,9 +1,13 @@
 package objetos;
 
+import java.util.ArrayList;
+
 public class Simulado {
     
     private int id_simulado;
     private int qnt_questoes;
+    private ArrayList<String> nome_materia = new ArrayList<String>();
+ 
 
     public Simulado(){
     	
@@ -28,5 +32,13 @@ public class Simulado {
 
     public void setQnt_questoes(int qnt_questoes) {
         this.qnt_questoes = qnt_questoes;
+    }
+    
+    public ArrayList<String> getId_materias() {
+        return nome_materia;
+    }
+
+    public void set_materia (String materia) {
+    	this.nome_materia.add(materia);
     }
 }
