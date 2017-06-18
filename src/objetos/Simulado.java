@@ -5,6 +5,10 @@ public class Simulado {
     private int id_simulado;
     private int qnt_questoes;
 
+    public Simulado(){
+    	
+    }
+    
     public Simulado(int id_simulado, int qnt_questoes) {
         this.id_simulado = id_simulado;
         this.qnt_questoes = qnt_questoes;

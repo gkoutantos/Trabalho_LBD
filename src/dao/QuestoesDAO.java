@@ -1,13 +1,10 @@
 package dao;
 
-import objetos.MaterialComplementar;
 import objetos.Questoes;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class QuestoesDAO {
@@ -33,7 +30,7 @@ public class QuestoesDAO {
     
     public ArrayList<Questoes> lista() throws SQLException{        
         
-        String sql = "select * from Questoes as a join Materia as b on a.id_materia = b.id_materia;";
+        String sql = "select * from banco_de_questoes join materia on id_materia = id_materia_ref;";
         ArrayList<Questoes> lista = new ArrayList();
         
         try(PreparedStatement stmt = con.prepareStatement(sql)){
@@ -44,7 +41,7 @@ public class QuestoesDAO {
                                         
                     int id = rs.getInt("id_questao");
                     String conteudo = rs.getString("conteudo_questao");
-                    int dificuldade = rs.getInt("dificuldade");
+                    int dificuldade = rs.getInt("dificuldade_questao");
                     String resposta_correta = rs.getString("resposta_correta");
                     Integer id_materia = rs.getInt("id_materia");
 
