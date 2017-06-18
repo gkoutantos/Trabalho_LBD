@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import connection.ConnectionDB;
-import dao.SimuladoProntoDAO;
+import dao.SimuladoDAO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -35,10 +35,10 @@ public class SimuladoProntoController {
 		
 		ConnectionDB conecta = new ConnectionDB();
 		Connection conexao = conecta.conecta();
-		SimuladoProntoDAO simuladoProntoDAO = new SimuladoProntoDAO(conexao);
+		SimuladoDAO simuladoDAO = new SimuladoDAO(conexao);
 		
 		try {
-			data = FXCollections.observableArrayList(simuladoProntoDAO.lista());
+			data = FXCollections.observableArrayList(simuladoDAO.lista());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

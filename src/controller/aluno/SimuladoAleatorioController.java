@@ -2,6 +2,7 @@ package controller.aluno;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import main.Utils;
+import objetos.Questoes;
 
 public class SimuladoAleatorioController {
 	@FXML private CheckBox chkMatematica;
@@ -26,43 +29,77 @@ public class SimuladoAleatorioController {
 	@FXML private CheckBox chkGeografia;
 	@FXML private CheckBox chkHistoria;
 	
-	List<String> questoes;
+	private List<Questoes> questoes;
+	private SimuladoDAO simuladoDAO;
 	
 	public void initialize(){
 		questoes = new ArrayList<>();
 		
 		ConnectionDB conecta = new ConnectionDB();
 		Connection conexao = conecta.conecta();
-		SimuladoDAO simuladoDAO = new SimuladoDAO(conexao);
+		simuladoDAO= new SimuladoDAO(conexao);
 	}
 	
 	public void clickOnAvancar(ActionEvent ae){
 		if(chkMatematica.isSelected()){
-			
+			try {
+				questoes.addAll(simuladoDAO.lista(chkMatematica.getText()));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(chkFisica.isSelected()){
-			
+			try {
+				questoes.addAll(simuladoDAO.lista(chkFisica.getText()));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(chkQuimica.isSelected()){
-			
+			try {
+				questoes.addAll(simuladoDAO.lista(chkQuimica.getText()));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(chkPortugues.isSelected()){
-			
+			try {
+				questoes.addAll(simuladoDAO.lista(chkPortugues.getText()));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(chkBiologia.isSelected()){
-			
+			try {
+				questoes.addAll(simuladoDAO.lista(chkBiologia.getText()));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(chkGeografia.isSelected()){
-			
+			try {
+				questoes.addAll(simuladoDAO.lista(chkGeografia.getText()));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(chkHistoria.isSelected()){
-			
+			try {
+				questoes.addAll(simuladoDAO.lista(chkHistoria.getText()));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(questoes.isEmpty()){
+			Utils.showError("Erro", "Selecione pelo menos uma matéria.");
+			return;
 		}
 		
 		try {
