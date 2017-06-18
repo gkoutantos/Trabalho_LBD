@@ -1,5 +1,6 @@
 package dao;
 
+import objetos.MaterialComplementar;
 import objetos.Questoes;
 import java.sql.Connection;
 import java.sql.Date;
@@ -18,8 +19,9 @@ public class QuestoesDAO {
     }
     
     public void salva(Questoes questoes) throws SQLException{
-        
-        String sql = "INSERT INTO banco_de_questoes(conteudo_questao, dificuldade, respota_certa, id_materia) VALUES (?, ?, ?, ?)";             
+    	ArrayList<String> lista = new ArrayList<String>();
+    	//String sql = "select id_questao from banco_de_questoes";
+        String sql = "INSERT INTO banco_de_questoes(id_questao, conteudo_questao, dificuldade_questao, resposta_correta, id_materia_ref) VALUES (140, ?, ?, ?, ?)";             
         try(PreparedStatement stmt = con.prepareStatement(sql)){
             stmt.setString(1, questoes.getConteudo_questao());
             stmt.setInt(2, questoes.getDificuldade());
