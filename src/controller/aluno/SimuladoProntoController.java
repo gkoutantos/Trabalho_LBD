@@ -18,18 +18,22 @@ import javafx.util.Callback;
 import objetos.Simulado;
 
 public class SimuladoProntoController {
-	@FXML private TableView<String> tableSimulados;
-	@FXML private TableColumn<String, String> simuladosColumn;
+	@FXML private TableView<Simulado> tableSimulados;
+	@FXML private TableColumn<Simulado, String> simuladosColumn;
 	
 	private ObservableList<Simulado> data;
 	
 	public void initialize(){
 		tableSimulados.setPlaceholder(new Label("Não há simulados prontos."));
 		
-		simuladosColumn.setCellValueFactory(new Callback<CellDataFeatures<String, String>, ObservableValue<String>>() {
+		simuladosColumn.setCellValueFactory(new Callback<CellDataFeatures<Simulado, String>, ObservableValue<String>>() {
 	        @Override
-	        public ObservableValue<String> call(CellDataFeatures<String, String> p) {
-	            return new SimpleStringProperty(p.getValue());
+	        public ObservableValue<String> call(CellDataFeatures<Simulado, String> p) {
+	        	String materias = "";
+	        	for (int i = 0; i < p.getValue().getId_materias().size(); i++) {
+					materias += p.getValue().getId_materias().get(i) + ", ";
+				}
+	            return new SimpleStringProperty(Integer.toString(p.getValue().getQnt_questoes()) + " " + materias + p.getValue().getId_simulado());
 	        }
 	    });
 		
@@ -43,6 +47,7 @@ public class SimuladoProntoController {
 			e.printStackTrace();
 		}
 		
-		//tableSimulados.setItems(FXCollections.observableArrayList(data));
+		tableSimulados.setItems(FXCollections.observableArrayList(data));
+		
 	}
 }

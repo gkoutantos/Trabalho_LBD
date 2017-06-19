@@ -30,8 +30,8 @@ public class SimuladoDAO {
     }
     
     public ArrayList<Simulado> lista() throws SQLException{
-        String sql = "select s.id_simulado, s.quantidade_de_questoes from simulado;";
-        String sql2 = "select m.nome_materia simulado_materia as sm JOIN materia as m ON m.id_materia = sm.id_materia_ref where sm.id_simulado_ref = ?;";
+        String sql = "select id_simulado, quantidade_de_questoes from simulado;";
+        String sql2 = "select distinct m.nome_materia from simulado_materia as sm JOIN materia as m ON m.id_materia = sm.id_materia_ref where sm.id_simulado_ref = ?;";
            
            ArrayList<Simulado> lista = new ArrayList();        
            
@@ -41,21 +41,20 @@ public class SimuladoDAO {
                
                try(ResultSet rs = stmt.getResultSet() ){
                 int id;
-                Simulado s = new Simulado();
                    while(rs.next()){ 
+                	 Simulado s = new Simulado();
                      id = rs.getInt("id_simulado");
                      s.setId_simulado(rs.getInt("id_simulado"));
                      s.setQnt_questoes(rs.getInt("quantidade_de_questoes"));
-                     
-                     
+
                      stmt2.setInt(1, id);
                      stmt2.execute();                                    
                      try(ResultSet rs2 = stmt2.getResultSet() ){
-                         while(rs.next()){ 
-                             s.set_materia(rs.getString("nome_materia"));
+                         while(rs2.next()){ 
+                             s.set_materia(rs2.getString("nome_materia"));
+                             System.out.println(rs2.getString("nome_materia"));
                          }
                      }
-                     
                      lista.add(s);
                    }                
                }
