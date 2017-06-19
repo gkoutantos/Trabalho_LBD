@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.AnchorPane;
@@ -103,8 +104,10 @@ public class SimuladoAleatorioController {
 		}
 		
 		try {
-			AnchorPane simulado = FXMLLoader.load(getClass().getResource("/fxml/aluno/Simulado.fxml"));
-			Scene scene = new Scene(simulado);
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/aluno/Simulado.fxml"));
+			Parent root = (Parent) fxmlLoader.load();
+			((SimuladoController) fxmlLoader.getController()).setQuestoes(questoes);
+			Scene scene = new Scene(root);
 			Stage simuladoStage = new Stage();
 			simuladoStage.setTitle("Examtl - Simulado Aleatório");
 			simuladoStage.setScene(scene);
