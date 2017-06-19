@@ -13,7 +13,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -21,6 +23,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.stage.Window;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import main.Utils;
@@ -132,7 +135,7 @@ public class MontarSimuladoController {
 		}
 	}
 	
-	public void onClickConcluir(){
+	public void onClickConcluir(ActionEvent ae){
 		Simulado simulado = new Simulado();
 		simulado.setQnt_questoes(Integer.parseInt(lblQuantidade.getText()));
 		SimuladoBQ simuladoBQ = new SimuladoBQ();
@@ -148,5 +151,11 @@ public class MontarSimuladoController {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		Utils.showInformation("Adicionado!","Simulado adicionado com sucesso");
+		
+		Node source = (Node) ae.getSource();
+		Window thisStage = source.getScene().getWindow();
+		thisStage.hide();
 	}
 }

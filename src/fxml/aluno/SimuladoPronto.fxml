@@ -22,7 +22,7 @@
                   <Insets bottom="50.0" />
                </StackPane.margin>
             </TableView>
-            <Button mnemonicParsing="false" text="Fazer Simulado!" StackPane.alignment="BOTTOM_CENTER">
+            <Button mnemonicParsing="false" onAction="#clickOnFazer" text="Fazer Simulado!" StackPane.alignment="BOTTOM_CENTER">
                <StackPane.margin>
                   <Insets bottom="10.0" />
                </StackPane.margin>

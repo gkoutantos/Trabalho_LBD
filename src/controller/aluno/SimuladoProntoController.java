@@ -15,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
+import main.Utils;
 import objetos.Simulado;
 
 public class SimuladoProntoController {
@@ -57,5 +58,16 @@ public class SimuladoProntoController {
 		
 		tableSimulados.setItems(FXCollections.observableArrayList(data));
 		
+	}
+	
+	public void clickOnFazer(){
+		if(!tableSimulados.getItems().isEmpty()){
+			if(tableSimulados.getSelectionModel().getSelectedItem() != null){
+				int id = tableSimulados.getSelectionModel().getSelectedItem().getId_simulado();
+			}else{
+				Utils.showError("Erro", "Selecione pelo menos um simulado.");
+				return;
+			}
+		}
 	}
 }
