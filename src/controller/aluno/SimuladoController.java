@@ -1,8 +1,13 @@
 package controller.aluno;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import connection.ConnectionDB;
+import dao.MontarSimuladoDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -12,7 +17,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Window;
 import main.Utils;
+import objetos.Desempenho;
 import objetos.Questoes;
+import objetos.Simulado;
 
 public class SimuladoController {
 	
@@ -95,6 +102,23 @@ public class SimuladoController {
 			Node source = (Node) ae.getSource();
 			Window thisStage = source.getScene().getWindow();
 			thisStage.hide();
+			
+			Simulado simulado = new Simulado();
+			simulado.setQnt_questoes(questoes.size());
+			ConnectionDB conecta = new ConnectionDB();
+			Connection conexao = conecta.conecta();
+			MontarSimuladoDAO montarSimulado = new MontarSimuladoDAO(conexao);
+			montarSimulado.salvaSimulado(simulado);
+
+			Desempenho desempenho = new Desempenho();
+
+			SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+			Date minhaDate = new Date(System.currentTimeMillis());
+			String novoFormato = formatador.format(minhaDate);
+			desempenho.setData(novoFormato);
+			desempenho.setRendimento(acertos / questoes.size());
+			desempenho.setId(simulado.getId_simulado());
+			desempenho.setProgresso(100);
 		}
 	}
 	
