@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.aluno.SimuladoProntoController">
    <children>
       <StackPane layoutX="241.0" layoutY="139.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TableView fx:id="tableSimulados" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="simuladosColumn" prefWidth="75.0" text="Simulados" />
+                <TableColumn fx:id="simuladosColumn" prefWidth="75.0" text="Quantidade de questões" />
+                  <TableColumn fx:id="materiasColumn" prefWidth="75.0" text="Matérias" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

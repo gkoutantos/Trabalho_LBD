@@ -20,6 +20,7 @@ import objetos.Simulado;
 public class SimuladoProntoController {
 	@FXML private TableView<Simulado> tableSimulados;
 	@FXML private TableColumn<Simulado, String> simuladosColumn;
+	@FXML private TableColumn<Simulado, String> materiasColumn;
 	
 	private ObservableList<Simulado> data;
 	
@@ -29,11 +30,18 @@ public class SimuladoProntoController {
 		simuladosColumn.setCellValueFactory(new Callback<CellDataFeatures<Simulado, String>, ObservableValue<String>>() {
 	        @Override
 	        public ObservableValue<String> call(CellDataFeatures<Simulado, String> p) {
+	   
+	            return new SimpleStringProperty(Integer.toString(p.getValue().getQnt_questoes()));
+	        }
+	    });
+		materiasColumn.setCellValueFactory(new Callback<CellDataFeatures<Simulado, String>, ObservableValue<String>>() {
+	        @Override
+	        public ObservableValue<String> call(CellDataFeatures<Simulado, String> p) {
 	        	String materias = "";
 	        	for (int i = 0; i < p.getValue().getId_materias().size(); i++) {
-					materias += p.getValue().getId_materias().get(i) + ", ";
+					materias += p.getValue().getId_materias().get(i) + " ";
 				}
-	            return new SimpleStringProperty(Integer.toString(p.getValue().getQnt_questoes()) + " " + materias + p.getValue().getId_simulado());
+	            return new SimpleStringProperty(materias);
 	        }
 	    });
 		

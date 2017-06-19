@@ -52,7 +52,6 @@ public class SimuladoDAO {
                      try(ResultSet rs2 = stmt2.getResultSet() ){
                          while(rs2.next()){ 
                              s.set_materia(rs2.getString("nome_materia"));
-                             System.out.println(rs2.getString("nome_materia"));
                          }
                      }
                      lista.add(s);
