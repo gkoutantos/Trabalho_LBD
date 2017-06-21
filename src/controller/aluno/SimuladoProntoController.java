@@ -3,6 +3,7 @@ package controller.aluno;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import connection.ConnectionDB;
@@ -38,6 +39,8 @@ public class SimuladoProntoController {
 	private ObservableList<Simulado> data;
 	
 	public void initialize(){
+		questoes = new ArrayList<>();
+		
 		tableSimulados.setPlaceholder(new Label("Não há simulados prontos."));
 		
 		simuladosColumn.setCellValueFactory(new Callback<CellDataFeatures<Simulado, String>, ObservableValue<String>>() {
@@ -60,7 +63,7 @@ public class SimuladoProntoController {
 		
 		ConnectionDB conecta = new ConnectionDB();
 		Connection conexao = conecta.conecta();
-		SimuladoDAO simuladoDAO = new SimuladoDAO(conexao);
+		simuladoDAO = new SimuladoDAO(conexao);
 		
 		try {
 			data = FXCollections.observableArrayList(simuladoDAO.lista());
@@ -69,7 +72,6 @@ public class SimuladoProntoController {
 		}
 		
 		tableSimulados.setItems(FXCollections.observableArrayList(data));
-		
 	}
 	
 	public void clickOnFazer(ActionEvent ae) throws SQLException{
@@ -85,7 +87,7 @@ public class SimuladoProntoController {
 					((SimuladoController) fxmlLoader.getController()).setQuestoes(questoes);
 					Scene scene = new Scene(root);
 					Stage simuladoStage = new Stage();
-					simuladoStage.setTitle("Examtl - Simulado Aleatório");
+					simuladoStage.setTitle("Examtl - Simulado Pronto");
 					simuladoStage.setScene(scene);
 					simuladoStage.setResizable(false);
 					simuladoStage.show();

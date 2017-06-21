@@ -177,8 +177,7 @@ public class SimuladoDAO {
     		    	
     			}
     		}
-    	}
-    	
+    	}	
 
     	return lista;
     }
