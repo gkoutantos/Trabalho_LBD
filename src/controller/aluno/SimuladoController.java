@@ -2,11 +2,14 @@ package controller.aluno;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import connection.ConnectionDB;
+import dao.DesempenhoDAO;
 import dao.MontarSimuladoDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,7 +54,7 @@ public class SimuladoController {
 		 rdbE.setToggleGroup(group);
 	}
 	
-	public void clickOnAvancar(ActionEvent ae){
+	public void clickOnAvancar(ActionEvent ae) throws SQLException{
 		if(cont != questoes.size() - 1){
 			if (rdbA.isSelected()){
 				if (questoes.get(cont).getResposta_correta().equalsIgnoreCase("A")){
@@ -114,11 +117,17 @@ public class SimuladoController {
 
 			SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 			Date minhaDate = new Date(System.currentTimeMillis());
-			String novoFormato = formatador.format(minhaDate);
+			//System.out.println(Integer.toString(Calendar.HOUR_OF_DAY));
+			String novoFormato = formatador.format(minhaDate)+" - id: "+(Integer.toString(simulado.getId_simulado()));
 			desempenho.setData(novoFormato);
-			desempenho.setRendimento(acertos / questoes.size());
-			desempenho.setId(simulado.getId_simulado());
-			desempenho.setProgresso(100);
+			double acertos2 = acertos;
+			double tamanho = questoes.size();
+			int rendimento2 = (int) ((acertos2 / tamanho)*100);
+			desempenho.setRendimento(Integer.toString(rendimento2));
+			desempenho.setId(Integer.toString(simulado.getId_simulado()));
+			desempenho.setProgresso(Integer.toString(100));
+			DesempenhoDAO desempenhoDAO = new DesempenhoDAO(conexao);
+			desempenhoDAO.salva(desempenho);
 		}
 	}
 	

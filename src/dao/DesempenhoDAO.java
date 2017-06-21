@@ -17,7 +17,7 @@ public class DesempenhoDAO {
     
     public ArrayList<Desempenho> lista() throws SQLException{        
         
-        String sql = "select id_simulado_ref, rendimento, progresso from aluno_simulado WHERE id_aluno_ref = 101;";
+        String sql = "select data_realizado, rendimento, progresso from aluno_simulado WHERE id_aluno_ref = 101;";
         
         ArrayList<Desempenho> lista = new ArrayList<Desempenho>();
         
@@ -27,7 +27,7 @@ public class DesempenhoDAO {
             try(ResultSet rs = stmt.getResultSet() ){
                 while(rs.next()){
                 	Desempenho desempenho = new Desempenho();
-                	desempenho.setId(rs.getString("id_simulado_ref"));
+                	desempenho.setData(rs.getString("data_realizado"));
                     desempenho.setRendimento(rs.getString("rendimento"));
                     desempenho.setProgresso(rs.getString("progresso"));
                     lista.add(desempenho);
@@ -35,5 +35,23 @@ public class DesempenhoDAO {
             }
         }
         return lista;       
+    }
+    
+  public void salva(Desempenho desempenho) throws SQLException{        
+        
+        String sql = "INSERT INTO aluno_simulado (id_aluno_ref, id_simulado_ref, progresso, rendimento, data_realizado) VALUES (?, ?, ?, ?, ?);";
+      
+        
+        try(PreparedStatement stmt = con.prepareStatement(sql)){
+            
+                	stmt.setInt(1, 101);
+                	stmt.setInt(2, Integer.parseInt(desempenho.getId()));
+                	stmt.setInt(3, Integer.parseInt(desempenho.getProgresso()));
+                	stmt.setInt(4, Integer.parseInt(desempenho.getRendimento()));
+                	stmt.setString(5, desempenho.getData());
+                	stmt.execute();
+                
+            
+        }       
     }
 }

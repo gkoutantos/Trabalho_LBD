@@ -136,5 +136,52 @@ public class SimuladoDAO {
             stmt.setInt(1, simulado.getId_simulado());                
             stmt.execute();
         }
-    }   
-}
+    }
+    
+    public ArrayList<Questoes> listaPronto(int id) throws SQLException {
+    	ArrayList<Questoes> lista = new ArrayList();
+    	String sql = "select * from banco_de_questoes where id_questao =?;";
+    	String sql2 = "select * from simulado_bq where id_simulado_ref =?;";
+    	
+    	try (PreparedStatement stmt = con.prepareStatement(sql)) {
+    		try (PreparedStatement stmt2 = con.prepareStatement(sql2)) {  			
+    		     try (ResultSet rs2 = stmt2.getResultSet()) {
+    			      stmt2.setInt(1, id);
+    			      stmt2.execute();
+    			      try (ResultSet rs = stmt2.getResultSet()) {
+    						rs.next();
+    						int id3 = rs.getInt("id_questao_ref");
+    						stmt.setInt(1, id3);
+    					}
+    			      stmt.execute();
+    			      try (ResultSet rs = stmt.getResultSet()) {
+    		    			while (rs.next()) {
+    		    				//
+    		    				int id2 = rs.getInt("id_questao");
+    							String conteudo_questao = rs.getString("conteudo_questao");
+    							int dificuldade = rs.getInt("dificuldade_questao");
+    							String resposta_correta = rs.getString("resposta_correta");
+    							int id_materia = rs.getInt("id_materia_ref");
+
+    							Questoes q = new Questoes();
+    							
+    							q.setId_questao(id2);
+    							q.setConteudo_questao(conteudo_questao);
+    							q.setDificuldade(dificuldade);
+    							q.setResposta_correta(resposta_correta);
+    							q.setId_materia(id_materia);
+
+    							lista.add(q);
+    		    			}
+    			      }	
+    		    	
+    			}
+    		}
+    	}
+    	
+
+    	return lista;
+    }
+    
+    
+    }

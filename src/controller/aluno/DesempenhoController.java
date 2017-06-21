@@ -34,7 +34,7 @@ public class DesempenhoController {
 		simuladoidColumn.setCellValueFactory(new Callback<CellDataFeatures<Desempenho, String>, ObservableValue<String>>() {
 	        @Override
 	        public ObservableValue<String> call(CellDataFeatures<Desempenho, String> p) {
-	            return new SimpleStringProperty(p.getValue().getId());
+	            return new SimpleStringProperty(p.getValue().getData());
 	        }
 	    });
 		acertosColumn.setCellValueFactory(new Callback<CellDataFeatures<Desempenho, String>, ObservableValue<String>>() {

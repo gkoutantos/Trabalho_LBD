@@ -11,7 +11,7 @@
          <children>
             <TableView fx:id="tableDesempenho" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="simuladoidColumn" prefWidth="75.0" text="Identificador" />
+                <TableColumn fx:id="simuladoidColumn" prefWidth="75.0" text="Data" />
                 <TableColumn fx:id="acertosColumn" prefWidth="75.0" text="\% de acertos" />
                   <TableColumn fx:id="progressoColumn" prefWidth="75.0" text="\% Progresso" />
               </columns>
