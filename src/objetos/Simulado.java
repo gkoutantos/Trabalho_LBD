@@ -41,4 +41,8 @@ public class Simulado {
     public void set_materia (String materia) {
     	this.nome_materia.add(materia);
     }
+    
+    public ArrayList<String> get_materia () {
+    	return nome_materia;
+    }
 }

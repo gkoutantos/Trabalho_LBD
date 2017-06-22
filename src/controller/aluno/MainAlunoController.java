@@ -58,7 +58,21 @@ public class MainAlunoController {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Sobre");
 		alert.setHeaderText(null);
-		alert.setContentText("............");
+		alert.setContentText("Algumas informações básicas para a utilização do programa:\n\n\n"+	
+				"Fazer Simulado: clique nesta opção para a realização de simulados\n"
+				+ "- Simulados Prontos: são simulados já desenvolvidos por algum professor cadastrado no banco "
+				+ "normalmente são de conteúdos mais específicos\n"
+				+ "- Simulados Aleatórios: são simulados que serão gerados aleatóriamente com base nas matérias "
+				+ "desejadas.\n\n"
+				+ "Realizar -> Doações: Aqui você realizar uma doação e contribuir para todos os professores "
+				+ "ativos no sistema.\n\n"
+				+ "Realizar -> Dúvida: Aqui você pode deixar perguntas que serão respondidas por professores "
+				+ "que dominam o conteúdo.\n\n"
+				+ "Na aba notícias você pode conferir tudo o que está acontecendo nos "
+				+ "principais vestibulares do Brasil\n\n"
+				+ "Consultar -> Desempenho: Aqui você poderá consultar seu desempenho nos simulados realizados.\n\n"
+				+ "Consultar -> Material complementar: Aqui você pode consultar materiais com conteúdos extras "
+				+ "para te ajudar no estudo.");
 		alert.showAndWait();
 	}
 	

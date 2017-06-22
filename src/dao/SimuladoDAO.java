@@ -1,5 +1,6 @@
 package dao;
 
+import objetos.Desempenho;
 import objetos.Questoes;
 import objetos.Simulado;
 import java.sql.Connection;
@@ -21,12 +22,17 @@ public class SimuladoDAO {
     public void salva(Simulado simulado) throws SQLException{
         
         String sql = "INSERT INTO Simulado(qnt_questoes) VALUES (?)";
+        ArrayList<String> nome_materia = new ArrayList<String>();
         
         try(PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
             stmt.setInt(1, simulado.getQnt_questoes());
             
             stmt.execute();                        
         }
+        
+       sql = "INSERT INTO simulado_materia(id_simulado_ref, id_materia_ref) VALUES (?, ?)";
+       
+       
     }
     
     public ArrayList<Simulado> lista() throws SQLException{
@@ -138,49 +144,36 @@ public class SimuladoDAO {
         }
     }
     
-    public ArrayList<Questoes> listaPronto(int id) throws SQLException {
-    	ArrayList<Questoes> lista = new ArrayList();
-    	String sql = "select * from banco_de_questoes where id_questao =?;";
-    	String sql2 = "select * from simulado_bq where id_simulado_ref =?;";
-    	
-    	try (PreparedStatement stmt = con.prepareStatement(sql)) {
-    		try (PreparedStatement stmt2 = con.prepareStatement(sql2)) {  			
-    		     try (ResultSet rs2 = stmt2.getResultSet()) {
-    			      stmt2.setInt(1, id);
-    			      stmt2.execute();
-    			      try (ResultSet rs = stmt2.getResultSet()) {
-    						rs.next();
-    						int id3 = rs.getInt("id_questao_ref");
-    						stmt.setInt(1, id3);
-    					}
-    			      stmt.execute();
-    			      try (ResultSet rs = stmt.getResultSet()) {
-    		    			while (rs.next()) {
-    		    				//
-    		    				int id2 = rs.getInt("id_questao");
-    							String conteudo_questao = rs.getString("conteudo_questao");
-    							int dificuldade = rs.getInt("dificuldade_questao");
-    							String resposta_correta = rs.getString("resposta_correta");
-    							int id_materia = rs.getInt("id_materia_ref");
 
-    							Questoes q = new Questoes();
-    							
-    							q.setId_questao(id2);
-    							q.setConteudo_questao(conteudo_questao);
-    							q.setDificuldade(dificuldade);
-    							q.setResposta_correta(resposta_correta);
-    							q.setId_materia(id_materia);
-
-    							lista.add(q);
-    		    			}
-    			      }	
-    		    	
-    			}
-    		}
-    	}	
-
-    	return lista;
-    }
     
+    public ArrayList<Questoes> listaPronto(int id) throws SQLException {    
+        
+    	String sql = "select * from simulado_bq join banco_de_questoes on id_simulado_ref = ? and id_questao = id_questao_ref;";
+        
+        ArrayList<Questoes> lista = new ArrayList();
+        
+        try(PreparedStatement stmt = con.prepareStatement(sql)){
+        	stmt.setInt(1, id);
+            stmt.execute();
+            
+            try(ResultSet rs = stmt.getResultSet() ){
+                while(rs.next()){
+                	int id2 = rs.getInt("id_questao");
+         		   String conteudo_questao = rs.getString("conteudo_questao");
+         		   int dificuldade = rs.getInt("dificuldade_questao");
+         		   String resposta_correta = rs.getString("resposta_correta");
+         		   int id_materia = rs.getInt("id_materia_ref");
+         		   Questoes q = new Questoes();
+         		   q.setId_questao(id2);
+         		   q.setConteudo_questao(conteudo_questao);
+         		   q.setDificuldade(dificuldade);
+         		   q.setResposta_correta(resposta_correta);
+         		   q.setId_materia(id_materia);
+         		   lista.add(q);
+                }
+            }
+        }
+        return lista;       
+    }
     
     }

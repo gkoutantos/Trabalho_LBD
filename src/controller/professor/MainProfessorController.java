@@ -118,7 +118,16 @@ public class MainProfessorController {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Sobre");
 		alert.setHeaderText(null);
-		alert.setContentText("............");
+		alert.setContentText("Algumas informações básicas para a utilização do programa:\n\n\n"+	
+				"Montar simulado: clique na opção montar e simulado e adicione as questões "
+				+ "desejadas, lembre-se o número mínimo de questões são 20 por simulado.\n\n"
+				+ "Na aba notícias você pode conferir tudo o que está acontecendo nos "
+				+ "principais vestibulares do Brasil\n\n"
+				+ "Consultar -> Dúvidas: Nesta opção você poderá sanar as dúvidas dos alunos.\n\n"
+				+ "Cadastrar -> Questões: Você poderá complementar nosso banco de questões através "
+				+ "dessa opção.\n\n"
+				+ "Cadastrar -> Material Complementar: Aqui você poderá publicar seus materiais "
+				+ "desenvolvidos que complementam algum conteúdo.");
 		alert.showAndWait();
 	}
 }
