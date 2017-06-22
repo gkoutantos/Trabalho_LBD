@@ -30,7 +30,7 @@ public class DuvidasDAO {
 
 	public ArrayList<String> lista() throws SQLException {
 		
-		String sql = "Select distinct * from duvidas as a JOIN professor_materia as B ON A.id_materia_ref = b.id_materia_ref WHERE b.id_professor_ref = 3 and a.esclarecimento is not null;";
+		String sql = "Select distinct * from duvidas as a JOIN professor_materia as B ON A.id_materia_ref = b.id_materia_ref WHERE b.id_professor_ref = 2 and a.esclarecimento is null;";
 
 		ArrayList<String> lista = new ArrayList<String>();
 

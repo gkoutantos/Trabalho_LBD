@@ -38,10 +38,13 @@ public class SimuladoController {
 	private List<Questoes> questoes = new ArrayList<>();
 	private int cont = 0;
 	private int acertos = 0;
+	private MontarSimuladoDAO montarSimulado;
+	private Connection conexao;
 	
 	public void setQuestoes(List<Questoes> questoes) {
 		this.questoes = questoes;
 		lblQuestao.setText(this.questoes.get(cont).getConteudo_questao());
+		cont++;
 		lblQuantidade.setText("1/" + questoes.size());
 	}
 	public void initialize(){
@@ -51,6 +54,10 @@ public class SimuladoController {
 		 rdbC.setToggleGroup(group);
 		 rdbD.setToggleGroup(group);
 		 rdbE.setToggleGroup(group);
+		 
+		ConnectionDB conecta = new ConnectionDB();
+		conexao= conecta.conecta();
+		montarSimulado = new MontarSimuladoDAO(conexao);
 	}
 	
 	public void clickOnAvancar(ActionEvent ae) throws SQLException{
@@ -77,6 +84,7 @@ public class SimuladoController {
 				}
 			}
 			lblQuestao.setText(questoes.get(cont++).getConteudo_questao());
+			lblQuantidade.setText(cont + "/" + questoes.size());
 		}else{
 			if (rdbA.isSelected()){
 				if (questoes.get(cont).getResposta_correta().equalsIgnoreCase("A")){
@@ -99,7 +107,11 @@ public class SimuladoController {
 					acertos++;
 				}
 			}
+			
 			btnAvancar.setText("Concluir");
+			lblQuestao.setText(questoes.get(cont++).getConteudo_questao());
+			lblQuantidade.setText(cont++ + "/" + questoes.size());
+			
 			Utils.showInformation("Simulado Concluído", "Verifique seu desempenho na tela de consulta.");
 			Node source = (Node) ae.getSource();
 			Window thisStage = source.getScene().getWindow();
@@ -107,9 +119,7 @@ public class SimuladoController {
 			
 			Simulado simulado = new Simulado();
 			simulado.setQnt_questoes(questoes.size());
-			ConnectionDB conecta = new ConnectionDB();
-			Connection conexao = conecta.conecta();
-			MontarSimuladoDAO montarSimulado = new MontarSimuladoDAO(conexao);
+			
 			montarSimulado.salvaSimulado(simulado);
 
 			Desempenho desempenho = new Desempenho();
@@ -122,15 +132,12 @@ public class SimuladoController {
 			double acertos2 = acertos;
 			double tamanho = questoes.size();
 			int rendimento2 = (int) ((acertos2 / tamanho)*100);
+			System.out.println(simulado.getId_simulado());
 			desempenho.setRendimento(Integer.toString(rendimento2));
 			desempenho.setId(Integer.toString(simulado.getId_simulado()));
 			desempenho.setProgresso(Integer.toString(100));
 			DesempenhoDAO desempenhoDAO = new DesempenhoDAO(conexao);
 			desempenhoDAO.salva(desempenho);
 		}
-	}
-	
-	public void clickOnVoltar(){
-		
 	}
 }

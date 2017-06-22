@@ -78,8 +78,6 @@ public class SimuladoProntoController {
 		if(!tableSimulados.getItems().isEmpty()){
 			if(tableSimulados.getSelectionModel().getSelectedItem() != null){
 				int id = tableSimulados.getSelectionModel().getSelectedItem().getId_simulado();
-				//int id = 13;
-				System.out.println(id);
 				questoes = simuladoDAO.listaPronto(id);
 				try {
 					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/aluno/Simulado.fxml"));

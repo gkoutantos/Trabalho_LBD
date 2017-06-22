@@ -36,11 +36,6 @@
                   <Insets left="850.0" top="20.0" />
                </StackPane.margin>
             </RadioButton>
-            <Button mnemonicParsing="false" onAction="#clickOnVoltar" text="Voltar" StackPane.alignment="BOTTOM_LEFT">
-               <StackPane.margin>
-                  <Insets bottom="10.0" left="10.0" />
-               </StackPane.margin>
-            </Button>
             <Button fx:id="btnAvancar" mnemonicParsing="false" onAction="#clickOnAvancar" text="Avançar" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets bottom="10.0" right="10.0" />
@@ -50,19 +45,9 @@
       </StackPane>
       <StackPane prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button defaultButton="true" mnemonicParsing="false" text="?" StackPane.alignment="TOP_RIGHT">
-               <StackPane.margin>
-                  <Insets right="10.0" top="10.0" />
-               </StackPane.margin>
-            </Button>
             <Label fx:id="lblQuantidade" text="1/90" StackPane.alignment="TOP_LEFT">
                <StackPane.margin>
                   <Insets left="10.0" top="10.0" />
-               </StackPane.margin>
-            </Label>
-            <Label fx:id="lblMateria" text="Matemática" StackPane.alignment="TOP_RIGHT">
-               <StackPane.margin>
-                  <Insets right="50.0" top="10.0" />
                </StackPane.margin>
             </Label>
             <Label fx:id="lblQuestao" prefHeight="538.0" prefWidth="970.0" text="Questão" wrapText="true" StackPane.alignment="CENTER">

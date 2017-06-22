@@ -17,43 +17,49 @@ private Connection con;
     }
     
     public void salvaSimulado(Simulado simulado) throws SQLException{
-    	String sql = "INSERT INTO simulado(quantidade_de_questoes) VALUES (?) returning id_simulado";
-    	ArrayList<String> nome_materia = new ArrayList<String>();
-        try(PreparedStatement stmt = con.prepareStatement(sql)){
-            stmt.setInt(1, simulado.getQnt_questoes());
-            stmt.execute();  
-            try(ResultSet rs = stmt.executeQuery()){            
-                if(rs.next()){
-                    int id = rs.getInt("id_simulado");                    
-                    simulado.setId_simulado(id);                                                             
+    	ArrayList<String> lista = new ArrayList<String>();
+    	String sql = "select id_simulado from simulado";
+    	try(PreparedStatement stmt = con.prepareStatement(sql)){
+            stmt.executeQuery();
+            
+            try(ResultSet rs = stmt.getResultSet() ){
+                while(rs.next()){
+                    lista.add(rs.getString("id_simulado"));
                 }
             }
-            
-        
-
-        sql = "INSERT INTO simulado_materia(id_simulado_ref, id_materia_ref) VALUES (?, ?)";
-
-        try(PreparedStatement stmt2 = con.prepareStatement(sql)){
-     	   String sql2 = "select id_materia from materia where nome_materia=?;";
-     	   nome_materia = simulado.get_materia();
-     	   int cont = 0;
-     	   try(PreparedStatement stmt3 = con.prepareStatement(sql2)){
-     		   while(cont < nome_materia.size()){
-     			   stmt3.setString(1, nome_materia.get(cont));
-     			   stmt3.executeQuery();
-     			   try(ResultSet rs = stmt3.getResultSet() ){
-     				   stmt2.setInt(1, simulado.getId_simulado());
-     				   stmt2.setInt(2, rs.getInt("id_materia"));
-     				   stmt2.execute();  
-     				   cont++;
-     			   }               
-                    
-     		   }
-                                   
-            }
         }
-        
-    }
+    	
+    	sql = "INSERT INTO simulado(id_simulado, quantidade_de_questoes) VALUES (?,?)";
+    	//ArrayList<String> nome_materia = new ArrayList<String>();
+        try(PreparedStatement stmt = con.prepareStatement(sql)){
+            stmt.setInt(1, lista.size() + 100);
+            simulado.setId_simulado(lista.size() + 100);
+            stmt.setInt(2, simulado.getQnt_questoes());
+            stmt.execute();  
+        }
+
+//        sql = "INSERT INTO simulado_materia(id_simulado_ref, id_materia_ref) VALUES (?, ?)";
+//
+//        try(PreparedStatement stmt2 = con.prepareStatement(sql)){
+//     	   String sql2 = "select id_materia from materia where nome_materia=?;";
+//     	   nome_materia = simulado.get_materia();
+//     	   int cont = 0;
+//     	   try(PreparedStatement stmt3 = con.prepareStatement(sql2)){
+//     		   while(cont < nome_materia.size()){
+//     			   stmt3.setString(1, nome_materia.get(cont));
+//     			   stmt3.executeQuery();
+//     			   try(ResultSet rs = stmt3.getResultSet() ){
+//     				   stmt2.setInt(1, simulado.getId_simulado());
+//     				   stmt2.setInt(2, rs.getInt("id_materia"));
+//     				   stmt2.execute();  
+//     				   cont++;
+//     			   }               
+//                    
+//     		   }
+//                                   
+//            }
+//        }
+//        
     }
     
     public void salvaSimuladoBQ(SimuladoBQ simuladoBQ) throws SQLException{
